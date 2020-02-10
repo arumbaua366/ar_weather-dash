@@ -1,101 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
     <title>Weather Dashboard</title>
 </head>
+
 <body>
     <div class="jumbotron bg-transparent">
         <h1 class="display-4"><a href="index.html">Weather Dashboard</a></h1>
         <hr class="my-4">
-        <div class="col-4">
-            <label class="text-dark" for="search-text">Search by city</label>
-            <div class="input-group">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-txt">
-              <button class="btn btn-outline-info ml-2" type="submit" id="search-btn"><i
-                  class="fas fa-search"></i></button>
+        <div class="container">
+            <label class="text" style="color: #17a2b8" for="search-text">Search by city</label>
+            <div class="input-group" style="width: 300px !important">
+                <input class="form-control shadow-lg bg-transparent" style="color: #17a2b8" type="search" placeholder="Search"
+                    aria-label="Search" id="search-txt">
+                <button class="btn btn-outline-info shadow-lg ml-2" type="submit" id="search-btn"><i
+                        class="fas fa-search"></i></button>
+            </div>
+
         </div>
-      </div>
-    <div class="container p-3 my-4">
-        <div class="row row-cols-1 my-4">
-            <div class="col mb-4">
-                <div class="card">
-                    <div class="card-body">
-                      <h2 class="main-city card-title"></h2>
-                      <p class="temperature">Temperature:</p>
-                      <p class="humidity">Humidity:</p>
-                      <p class="wind-speed">Wind Speed:</p>
-                      <p class="uv-index">UV Index:</p>
+        <div class="container p-3 my-4">
+            <div class="row row-cols-1 my-4">
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <div class="card-body">
+                            <h2 class="main-city card-title"></h2>
+                            <p class="temperature">Temperature: <span id="current-temp"></span></p>
+                            <p class="humidity">Humidity: <span id="current-humidity"></span></p>
+                            <p class="wind-speed">Wind Speed: <span id="current-wind-speed"></span></p>
+                            <p class="uv-index">UV Index: <span id="current-current-uv-index"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="five-day-forecast">5-Day Forecast</h3>
+            <div class="row row-cols-1 row-cols-md-5 my-4">
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <p class="day-image"></p>
+                        <div class="card-body">
+                            <h5 class="day-one-title">Card title</h5>
+                            <p class="day-one-temp">Temp:</p>
+                            <p class="day-one-humidity">Humidity:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <p class="day-image"></p>
+                        <div class="card-body">
+                            <h5 class="day-two-title">Card title</h5>
+                            <p class="day-two-temp">Temp:</p>
+                            <p class="day-two-humidity">Humidity:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <p class="day-image"></p>
+                        <div class="card-body">
+                            <h5 class="day-three-title">Card title</h5>
+                            <p class="day-three-temp">Temp:</p>
+                            <p class="day-three-humidity">Humidity:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <p class="day-image"></p>
+                        <div class="card-body">
+                            <h5 class="day-four-title">Card title</h5>
+                            <p class="day-four-temp">Temp:</p>
+                            <p class="day-four-humidity">Humidity:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
+                        <p class="day-image"></p>
+                        <div class="card-body">
+                            <h5 class="day-five-title">Card title</h5>
+                            <p class="day-five-temp">Temp:</p>
+                            <p class="day-five-humidity">Humidity:</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            <div class="row row-cols-1 row-cols-md-5 my-4">
-                <div class="col mb-4">
-                  <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="day-five card-text"></p>
-                      </div>
-                    </div>
-                  </div>
-        </div>
-    </div>
-    
-    
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="assets/js/scripts.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
 
 </body>
+
 </html>
