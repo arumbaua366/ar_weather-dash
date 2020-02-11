@@ -13,23 +13,64 @@ $("#search-btn").on("click", function (event) {
         url: mainQueryURL,
         method: "GET"
     }).then(function (response) {
+
         $("current-city").text(response.name + "(" + response.sys.country + ")");
         $("#current-temp").text(response.main.temp + " F°");
         $("#current-humidity").text(response.main.humidity + "%");
         $("#current-wind-speed").text(response.wind.speed + " MPH");
         $("#current-uv-index").text(response.sys.id);
-        console.log(response.name)
-        recentSearch.unshift(searchCity)
-        // var currentIcon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
-
-        // $("#weather-icon").html('<img src=' + currentIcon + ' class="current-icon" alt="Weather icon"></img>');
-
-        // fiveDayForecast(searchInput);
-        // recentSearch.unshift(searchInput);
-        // renderButtons();
+    
+        var currentIcon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
+        $("#weather-icon").html('<img src=' + currentIcon + ' class="current-icon" alt="weather-icon"></img>');
+        
+        fiveDayForecast(searchCity)
+        recentSearch.unshift(searchCity) // unshift() method adds the latest recent searches at the beginning of the "recent" array
+        renderButtons();
     })
 })
 
+function fiveDayForecast(searchCity) {
+
+        var appID = "19d9e8edbfb9033389bbb97a8925fea8"
+        var fiveDayQuery = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=imperial&appid=" + appID
+
+        $.ajax({
+            url: fiveDayQuery,
+            method: "GET"
+        }).then(function (response) {
+
+            $(".day-one-title").text(moment.unix(response.list[7].dt).format("dddd"));
+            $("#dayone-temp").text('Temp: ' + response.list[7].main.temp + ' F°');
+            $("#dayone-humidity").text('Humidity: ' + response.list[7].main.humidity + '%');
+            const oneIcon = "https://openweathermap.org/img/wn/" + response.list[7].weather[0].icon + "@2x.png";
+            $("#day-one-icon").html('<img src=' + dayOneIcon + ' class="five-day-icon" alt="weather-icon"></img>');
+            
+            $(".day-two-title").text(moment.unix(response.list[15].dt).format("dddd"));
+            $("#daytwo-temp").text('Temp: ' + response.list[15].main.temp + ' F°');
+            $("#daytwo-humidity").text('Humidity: ' + response.list[15].main.humidity + '%');
+            const twoIcon = "https://openweathermap.org/img/wn/" + response.list[15].weather[0].icon + "@2x.png";
+            $("#day-two-icon").html('<img src=' + dayTwoIcon + ' class="five-day-icon" alt="weather-icon"></img>');
+            
+            $(".day-three-title").text(moment.unix(response.list[23].dt).format("dddd"));
+            $("#daythree-temp").text('Temp: ' + response.list[23].main.temp + ' F°');
+            $("#daythree-humidity").text('Humidity: ' + response.list[23].main.humidity + '%');
+            const threeIcon = "https://openweathermap.org/img/wn/" + response.list[23].weather[0].icon + "@2x.png";
+            $("#day-three-icon").html('<img src=' + dayTwoIcon + ' class="five-day-icon" alt="weather-icon"></img>');
+            
+            $(".day-four-title").text(moment.unix(response.list[31].dt).format("dddd"));
+            $("#dayfour-temp").text('Temp: ' + response.list[31].main.temp + ' F°');
+            $("#dayfour-humidity").text('Humidity: ' + response.list[31].main.humidity + '%');
+            const fourIcon = "https://openweathermap.org/img/wn/" + response.list[31].weather[0].icon + "@2x.png";
+            $("#day-four-icon").html('<img src=' + dayFourIcon + ' class="five-day-icon" alt="weather-icon"></img>');
+            
+            $(".day-five-title").text(moment.unix(response.list[39].dt).format("dddd"));
+            $("#dayfive-temp").text('Temp: ' + response.list[39].main.temp + ' F°');
+            $("#dayfive-humidity").text('Humidity: ' + response.list[39].main.humidity + '%');
+            var fiveIcon = "https://openweathermap.org/img/wn/" + response.list[39].weather[0].icon + "@2x.png";
+            $("#day-five-icon").html('<img src=' + dayFiveIcon + ' class="five-day-icon" alt="weather-icon"></img>');
+
+        })
+    }
 // function getForecastURL(icon){
 
 //     var url = "";
