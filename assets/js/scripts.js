@@ -1,14 +1,16 @@
 var searchInput = [];
 
-function displayWeatherInfo () {
+
+
+$("#search-btn").on("click", function (event) {
     event.preventDefault();
 
     var searchCity = $("#search-txt").val();
     var appID = "19d9e8edbfb9033389bbb97a8925fea8"
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=imperial&appid=" + appID
+    var mainQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&units=imperial&appid=" + appID
 
     $.ajax({
-        url: queryURL,
+        url: mainQueryURL,
         method: "GET"
     }).then(function (response) {
         $("current-city").text(response.name + "(" + response.sys.country + ")");
@@ -16,62 +18,63 @@ function displayWeatherInfo () {
         $("#current-humidity").text(response.main.humidity + "%");
         $("#current-wind-speed").text(response.wind.speed + " MPH");
         $("#current-uv-index").text(response.sys.id);
+        console.log(response.name)
+        recentSearch.unshift(searchCity)
+        // var currentIcon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
 
-        var currentIcon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
+        // $("#weather-icon").html('<img src=' + currentIcon + ' class="current-icon" alt="Weather icon"></img>');
 
-        $("#weather-icon").html('<img src=' + currentIcon + ' class="current-icon" alt="Weather icon"></img>');
-
-        fiveDayForecast(searchInput);
-        recentSearch.unshift(searchInput);
-        renderButtons();
+        // fiveDayForecast(searchInput);
+        // recentSearch.unshift(searchInput);
+        // renderButtons();
     })
-}
+})
 
-function getForecastURL(icon){
+// function getForecastURL(icon){
 
-    var url = "";
+//     var url = "";
 
-    switch(icon) {
+//     switch(icon) {
 
-        case "01d":
-        case "01n":
-            url = "assets/img/sunny.png";
-            break;
+//         case "01d":
+//         case "01n":
+//             url = "assets/img/sunny.png";
+//             break;
 
-        case "02d":
-        case "02n":
-            url = "assets/img/sun-cloudy (1).png";
-            break;
+//         case "02d":
+//         case "02n":
+//             url = "assets/img/sun-cloudy (1).png";
+//             break;
 
-        case "03d":
-        case "03n":
-        case "04d":
-        case "04n":
-            url = "assets/img/cloud-cloudy.png";
-            break;
+//         case "03d":
+//         case "03n":
+//         case "04d":
+//         case "04n":
+//             url = "assets/img/cloud-cloudy.png";
+//             break;
 
-        case "09d":
-        case "09n":
-        case "10d":
-        case "10n":
-            url = "assets/img/rain-cloudy.png";
-            break;
+//         case "09d":
+//         case "09n":
+//         case "10d":
+//         case "10n":
+//             url = "assets/img/rain-cloudy.png";
+//             break;
 
-        case "11d":
-        case "11n":
-            url = "assets/images/storm.png";
-            break;
+//         case "11d":
+//         case "11n":
+//             url = "assets/images/storm.png";
+//             break;
 
-        case "13d":
-        case "13n":
-            url = "assets/img/cloudy-snow.png";
-            break;
+//         case "13d":
+//         case "13n":
+//             url = "assets/img/cloudy-snow.png";
+//             break;
 
-        case "50d":
-        case "50n":
-            url = "assets/img/sun-rain-cloudy.png";
-            break;
-    }
+//         case "50d":
+//         case "50n":
+//             url = "assets/img/sun-rain-cloudy.png";
+//             break;
+//     }
 
-    return url;
-}
+//     return url;
+// }
