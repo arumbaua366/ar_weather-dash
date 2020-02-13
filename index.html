@@ -31,7 +31,7 @@
         <div class="container p-3 my-4">
             <div class="row my-4">
                 <div class="col-4">
-                    <div class="recent my-3">
+                    <div class="recent my-2">
                        <label for="recent-input">Recent</label>
                        <div class="recent-input"></div>
                    </div>    
@@ -39,15 +39,21 @@
                 <div class="col-8 mb-4">
                     <div class="card shadow-lg p-3 mb-5 bg-transparent">
                         <div class="card-body">
-                            <h2 class="card-title"><span id="current-city"></span></h2>
-                            <div class="weather-icon" id="weather-icon"></div>
-                            <p class="temperature">Temperature: <span id="current-temp"></span></p>
-                            <p class="humidity">Humidity: <span id="current-humidity"></span></p>
-                            <p class="wind-speed">Wind Speed: <span id="current-wind-speed"></span></p>
-                            <p class="uv-index">UV Index: <span id="current-uv-index"></span></p>
+                            <h2 class="card-title text-center"><span id="current-city"></span></h2>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="temperature">Temperature: <span id="current-temp"></span></p>
+                                   <p class="humidity">Humidity: <span id="current-humidity"></span></p>
+                                   <p class="wind-speed">Wind Speed: <span id="current-wind-speed"></span></p>
+                                   <p class="uv-index">UV Index: <span id="current-uv-index"></span></p>   
+                                   </div>
+                                   <div class="col">
+                                     <div class="weather-icon" id="weather-icon"></div>  
+                                   </div>
+                            </div> 
                         </div>
                     </div>
-                    <h3 class="five-day-forecast">5-Day Forecast</h3>
+                    <h3 class="five-day-forecast text-center p-2 my-3">5-Day Forecast</h3>
             <div class="row d-flex flex-wrap" id="forecastWeather">
               
             </div>

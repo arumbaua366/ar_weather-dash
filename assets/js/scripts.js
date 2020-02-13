@@ -27,7 +27,7 @@ function searchCityWeather(searchCity) {
     url: mainQueryURL,
     method: "GET"
   }).then(function(response) {
-      
+
     $("#current-city").text(response.name + " (" + response.sys.country + ")");
     $("#current-temp").text(response.main.temp + " F°");
     $("#current-humidity").text(response.main.humidity + "%");
@@ -73,8 +73,8 @@ function fiveDayForecast(searchCity) {
         response.list[i].weather[0].icon +
         "@2x.png";
         var cardWeather = `
-            <div class="col mb-4">
-            <div class="card shadow-lg p-3 mb-5 bg-transparent hide">
+            <div class="col mb-4 text-center">
+            <div class="card shadow-lg p-3 mb-5 bg-transparent hide" style="width: 16rem;">
                 <p class="day-image"></p>
                 <div class="card-body">
                     <h5 class="title">${moment
@@ -82,8 +82,8 @@ function fiveDayForecast(searchCity) {
                       .format("dddd")}</h5>
                     <div class=""></div>
                     <img src=${fiveIcon} class='five-day-icon' alt='weather-icon'></img>
-                    <p class="">Temp: <span>${response.list[i]
-                      .main.temp + " F°"}</span></p>
+                    <p class="">Temp: ${response.list[i]
+                      .main.temp + " F°"}</p>
                     <p class="">Humidity: ${response
                       .list[i].main.humidity + "%"}</p>
                       
@@ -105,7 +105,7 @@ function recentSearchBtns() {
     b.addClass("btn btn-info w-100 mb-2 city-btn");
     b.attr("data-name", searchInput[i]);
     b.text(searchInput[i]);
-    $(".recent-input").append(b);
+    $(".recent-input").prepend(b);
   }
 }
 
