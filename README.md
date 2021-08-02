@@ -21,7 +21,7 @@
 npm install
 ```
 ## Usage
-* You can find the weather dashboard (here:)
+* You can find the weather dashboard here: ([https://arumbaua366.github.io/ar_weather-dash/])
 ## License
 * N/A
 ## Contributors
