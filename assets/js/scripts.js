@@ -18,10 +18,7 @@ $(document).on("click", ".city-btn", function(event) {
 function searchCityWeather(searchCity) {
   var appID = "19d9e8edbfb9033389bbb97a8925fea8";
   var mainQueryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchCity +
-    "&units=imperial&appid=" +
-    appID;
+    "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=imperial&appid=" + appID;
 
   $.ajax({
     url: mainQueryURL,
@@ -35,17 +32,13 @@ function searchCityWeather(searchCity) {
     $("#current-uv-index").text(response.sys.id);
 
     var currentIcon =
-      "http://openweathermap.org/img/wn/" +
-      response.weather[0].icon +
-      "@2x.png";
+      "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
     $("#weather-icon").html(
-      "<img src=" +
-        currentIcon +
-        " class='current-icon' alt='weather-icon'></img>"
+      "<img src=" + currentIcon + " class='current-icon' alt='weather-icon'></img>"
     );
 
     fiveDayForecast(searchCity);
-    searchInput.unshift(searchCity); // unshift() method adds the latest recent searches at the beginning of the "recent" array
+    searchInput.unshift(searchCity);
     recentSearchBtns();
   });
 }
@@ -54,9 +47,7 @@ function fiveDayForecast(searchCity) {
   var appID = "19d9e8edbfb9033389bbb97a8925fea8";
   var fiveDayQuery =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    searchCity +
-    "&units=imperial&appid=" +
-    appID;
+    searchCity + "&units=imperial&appid=" + appID;
   console.log(fiveDayQuery);
 
   $.ajax({
@@ -69,9 +60,7 @@ function fiveDayForecast(searchCity) {
       console.log(time);
       if (time[1] === "12:00:00") {
         var fiveIcon =
-        "https://openweathermap.org/img/wn/" +
-        response.list[i].weather[0].icon +
-        "@2x.png";
+        "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png";
         var cardWeather = `
             <div class="col mb-4 text-center">
             <div class="card shadow-lg p-3 mb-5 bg-transparent hide" style="width: 16rem;">
@@ -92,9 +81,14 @@ function fiveDayForecast(searchCity) {
         </div>`;
 
         $("#forecastWeather").append(cardWeather);
-      }
+        
+      } 
     }
   });
+}
+
+function removeCard() {
+  
 }
 
 function recentSearchBtns() {
@@ -105,7 +99,7 @@ function recentSearchBtns() {
     b.addClass("btn btn-info w-100 mb-2 city-btn");
     b.attr("data-name", searchInput[i]);
     b.text(searchInput[i]);
-    $(".recent-input").prepend(b);
+    $(".recent-input").replaceWith(b);
   }
 }
 
@@ -115,10 +109,7 @@ function getUvIndex(response) {
 
   var appID = "19d9e8edbfb9033389bbb97a8925fea8";
   var fiveDayQuery =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchCity +
-    "&units=imperial&appid=" +
-    appID;
+    "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=imperial&appid=" + appID;
 
   $.ajax({
     url: uvQuery,
@@ -129,9 +120,3 @@ function getUvIndex(response) {
 }
 
 
-// LOGIC
-
-
-
-//inlude   (string)
-//indexOf  (array)  array.indexOf(searchcity) ==== -1{ then push}

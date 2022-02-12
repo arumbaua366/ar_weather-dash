@@ -16,52 +16,39 @@
 </head>
 
 <body>
+    <!-- Jumbotron with title -->
     <div class="jumbotron bg-transparent">
         <h1 class="display-4"><a href="index.html">Weather Dashboard</a></h1>
-        <hr class="my-4">
-        <div class="container">
-            <label class="text" style="color: #17a2b8" for="search-text">Search by city</label>
-            <div class="input-group" style="width: 300px !important">
-                <input class="form-control shadow-lg bg-transparent" style="color: #17a2b8" type="search" placeholder="Search"
-                    aria-label="Search" id="search-txt">
-                <button class="btn btn-outline-info shadow-lg ml-2" type="submit" id="search-btn"><i
-                        class="fas fa-search"></i></button>
-            </div>  
-        </div>
-        <div class="container p-3 my-4">
-            <div class="row my-4">
-                <div class="col-4">
-                    <div class="recent my-2">
-                       <label for="recent-input">Recent</label>
-                       <div class="recent-input"></div>
-                   </div>    
-                   </div> 
-                <div class="col-8 mb-4">
-                    <div class="card shadow-lg p-3 mb-5 bg-transparent">
-                        <div class="card-body">
-                            <h2 class="card-title text-center"><span id="current-city"></span></h2>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="temperature">Temperature: <span id="current-temp"></span></p>
-                                   <p class="humidity">Humidity: <span id="current-humidity"></span></p>
-                                   <p class="wind-speed">Wind Speed: <span id="current-wind-speed"></span></p>
-                                   <p class="uv-index">UV Index: <span id="current-uv-index"></span></p>   
-                                   </div>
-                                   <div class="col">
-                                     <div class="weather-icon" id="weather-icon"></div>  
-                                   </div>
-                            </div> 
-                        </div>
+    </div>
+    <!-- Main container with search box, main city display, and 5 day forecast -->
+    <div class="container">
+        <div class="row">
+            <div id="content-left" class="col-md-3">
+                <form>
+                    <label for="search-city">Search by city:</label>
+                    <div class="form-row">
+                        <input class="form-control shadow-lg bg-transparent" style="color: #17a2b8" type="search"
+                            placeholder="Search" aria-label="Search" id="search-txt">
+                        <button class="btn btn-outline-info shadow-lg ml-2" type="submit" id="search-btn"><i class="fas fa-search"></i></button>
                     </div>
-                    <h3 class="five-day-forecast text-center p-2 my-3">5-Day Forecast</h3>
-            <div class="row d-flex flex-wrap" id="forecastWeather">
-              
+                </form>
+                <div id="search-error"></div>
+                <!-- Recent searches -->
+                <ul id="city-results" class="list-group mt-4"></ul>
+                <!-- clear storage button -->
+                <a id="clear-storage" href="#"></a>  
             </div>
-                </div>
+            <!-- Right side content showing current weather and five day forecast displays on search -->
+            <div id="content-right" class="col-md-9 pt-4">
+                <!-- Current weather displayed on top -->
+                <div id="current-weather" class="border rounded"></div>
+                <!-- Five day forecast below the current weather -->
+                <div id="five-day-forecast" class="mt-5"></div>
             </div>
-        
+        </div>
+    </div>
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="assets/js/scripts.js"></script>
 
 </body>
