@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(34, 34, 34) !important;
+    color: #17a2b8 !important;
+}
+
+#header {
+    position: relative !important;
+}
+
+.jumbotron, .form-control, .card {
+    padding: 1rem;
+    border-radius: 0;
+    background-color: rgb(34, 34, 34);
+    border-color: #17a2b8 !important;
+}
+
+.display-4, a {
+    margin: auto;
+    text-decoration: none !important;
+    color: #17a2b8 !important;
+    text-align: center;
+}
+
+#search-city {
+    width: 80%;
+}
+
+#search-button-icon {
+    width: 45px;
+    display: inline-block;
+}
+
+#current-weather {
+    padding-left: 15px;
+}
+
+span {
+    color: rgba(255, 255, 255, 0);
+}
+
+.list-group-item {
+    background-color: rgb(34, 34, 34);
+}
+
+@media only screen and (max-width: 992px) {
+    #search-city {
+        width: 100%;
+    }
+    #search-button {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 575px) {
+
+    #fiveDayForecastUl {
+        justify-content: center;
+    }
+}
+
