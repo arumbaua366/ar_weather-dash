@@ -1,8 +1,8 @@
 # Weather Dashboard
-![](./assets/img/weatherdash.jpeg)
+![](https://thumbs.gfycat.com/PertinentFlawedAcornwoodpecker-size_restricted.gif)
 
 ## About
-* A weather dashboard that uses the [Open Weather API](https://thumbs.gfycat.com/PertinentFlawedAcornwoodpecker-size_restricted.gif). To utilize the weather dashboard, you type in the name of any city and the dashboard will display its current weather conditions as well as the area's five-day forecast.
+* A weather dashboard that uses the [Open Weather API](https://openweathermap.org/current). To utilize the weather dashboard, you type in the name of any city and the dashboard will display its current weather conditions as well as the area's five-day forecast.
 
 ## Features
 * A modern, moody, minimalist layout.
